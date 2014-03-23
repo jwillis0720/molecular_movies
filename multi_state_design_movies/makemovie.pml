@@ -244,7 +244,7 @@ spectrum b, blue_white_red, msd_residues
 
 show cartoon, 2b1a_h + 2xwt_h + 3hmx_h
 # # make the surface transparent
-set transparency, .5
+set transparency, 0.5
 
 set_view (\
      -0.992779553, -0.119716585, 0.004772634,\
@@ -299,10 +299,11 @@ label title_4, "However all three antibodies are encoded by a common heavy varib
 set label_size, 30
 
 #hide everything until we need it for movie
-hide
+hide everything, *copy*
+hide everything, *title*
 
 # # set up frame movie using just state one
-# mset 1 x560
+mset 1 x260
 
 
 # # SCENE 1 - Showcasing antigens
@@ -311,218 +312,154 @@ hide
 # # set up intial global view with each object spaced 60 angstroms apart
 # # 2b1a will go on the left, 3hmx on the right
 
-# frame 1
-# translate[-80, 0, 0], object = 2b1a_ant
-# translate[-80, 0, 0], object = 2b1a_h
-# translate[-80, 0, 0], object = 2b1a_l
-# translate[-80, 0, 0], object = 2b1a_ant_copy
-# translate[-80, 0, 0], object = 2b1a_h_copy
-# translate[-80, 0, 0], object = 2b1a_l_copy
-# translate[-80, 0, 0], object = A1
-# translate[-80, 0, 0], object = 2b1a_ant_title
-# translate[-80, 0, 0], object = 2b1a_l_title
-# translate[-80, 0, 0], object = 2b1a_gl_title
-# translate[-80, 0, 0], object = 2b1a_gl
-# translate[0, 0, 30], object = 2b1a_gl_title
-# translate[0, 20, 0], object = complex_title
+frame 1
+translate [-80, 0, 0], object=2b1a_ant
+translate [-80, 0, 0], object=2b1a_h
+translate [-80, 0, 0], object=2b1a_l
+translate [-80, 0, 0], object=2b1a_ant_copy
+translate [-80, 0, 0], object=2b1a_h_copy
+translate [-80, 0, 0], object=2b1a_l_copy
+translate [-80, 0, 0], object=A1
+translate [-80, 0, 0], object=2b1a_ant_title
+translate [-80, 0, 0], object=2b1a_l_title
+translate [-80, 0, 0], object=2b1a_gl_title
+translate [-80, 0, 0], object=2b1a_gl
+translate [0, 0, 30], object=2b1a_gl_title
+translate [0, 20, 0], object=complex_title
 
-# # 3hmx needs a center of mass too
-# translate[80, 0, 0], object = 3hmx_ant
-# translate[80, 0, 0], object = com
-# translate[80, 0, 0], object = 3hmx_l
-# translate[80, 0, 0], object = 3hmx_h
-# translate[80, 0, 0], object = 3hmx_ant_copy
-# translate[80, 0, 0], object = 3hmx_l_copy
-# translate[80, 0, 0], object = 3hmx_h_copy
-# translate[80, 0, 0], object = C1
-# translate[80, 0, 0], object = 3hmx_ant_title
-# translate[80, 0, 0], object = 3hmx_l_title
-# translate[80, 0, 0], object = 3hmx_gl_title
-# translate[80, 0, 0], object = 3hmx_gl
-# translate[0, 0, 30], object = 3hmx_gl_title
+# 3hmx needs a center of mass too I don't know why
+translate [80, 0, 0], object=3hmx_ant
+translate [80, 0, 0], object=com
+translate [80, 0, 0], object=3hmx_l
+translate [80, 0, 0], object=3hmx_h
+translate [80, 0, 0], object=3hmx_ant_copy
+translate [80, 0, 0], object=3hmx_l_copy
+translate [80, 0, 0], object=3hmx_h_copy
+translate [80, 0, 0], object=C1
+translate [80, 0, 0], object=3hmx_ant_title
+translate [80, 0, 0], object=3hmx_l_title
+translate [80, 0, 0], object=3hmx_gl_title
+translate [80, 0, 0], object=3hmx_gl
+translate [0, 0, 30], object=3hmx_gl_title
 
-# translate[0, 0, 30], object = 2xwt_gl_title
+translate [0, 0, 30], object=2xwt_gl_title
 
-# # translate main title
-# translate[0, 70, 0], object = title
-# translate[0, 70, 0], object = title_2
-# translate[0, 70, 0], object = title_3
-# translate[0, 40, 0], object = title_4
-
-# mview store, object = title
-# mview store, object = title_2
-# mview store, object = title_3
-# mview store, object = title_4
-# mview store, object = title_5
-# mview store, object = 2b1a_ant
-# mview store, object = 2b1a_h
-# mview store, object = 2b1a_l
-# mview store, object = 2b1a_ant_copy
-# mview store, object = 2b1a_h_copy
-# mview store, object = 2b1a_l_copy
-# mview store, object = A1
-# mview store, object = 2b1a_ant_title
-# mview store, object = 2b1a_l_title
-# mview store, object = 2b1a_gl_title
-# mview store, object = 3hmx_ant
-# mview store, object = 3hmx_h
-# mview store, object = 3hmx_l
-# mview store, object = 3hmx_ant_copy
-# mview store, object = 3hmx_h_copy
-# mview store, object = 3hmx_l_copy
-# mview store, object = B1
-# mview store, object = 3hmx_ant_title
-# mview store, object = 3hmx_l_title
-# mview store, object = 3hmx_gl_title
-# mview store, object = 2xwt_ant
-# mview store, object = 2xwt_h
-# mview store, object = 2xwt_l
-# mview store, object = 2xwt_ant_copy
-# mview store, object = 2xwt_h_copy
-# mview store, object = 2xwt_l_copy
-# mview store, object = 1
-# mview store, object = 2xwt_ant_title
-# mview store, object = 2xwt_l_title
-# mview store, object = 2xwt_gl_title
-# mview store, object = 2xwt_gl
-# mview store, object = complex_title
-# show surface, antigens + light + heavy
-# show cartoon, heavy
-# show labels, title
-# hide everything, *copy*
-# hide everything, com
-# scene 001, store
-# mview store, 1, scene = 001
+# translate main title
+translate [0, 40, 0], object=title
+translate [0, 40, 0], object=title_2
+translate [0, 40, 0], object=title_3
+translate [0, 40, 0], object=title_4
 
 
-# frame 50
-# hide labels, title
-# show labels, title_2
-# show labels, 2b1a_ant_title
-# show labels, 2xwt_ant_title
-# show labels, 3hmx_ant_title
-# color magenta, antigens
-# mview store, object = 2b1a_ant
-# mview store, object = 2xwt_ant
-# mview store, object = 3hmx_ant
-# mview store, object = title
-# mview store, object = title_2
-# mview store, object = 2b1a_ant_title
-# mview store, object = 2xwt_ant_title
-# mview store, object = 3hmx_ant_title
-# mview store, object = antigens
-# scene 002, store
-# mview store, 50, scene = 002
+mview store, object=2xwt_ant
+mview store, object=2xwt_l
+mview store, object=2xwt_h
+show surface, antigens + light + heavy
+show cartoon, heavy
+show labels, title
+hide everything, *copy*
+hide everything, com
+scene 001, store
+mview store, 1, scene = 001
 
 
-# frame 70
-# # antigen translate
-# translate[0, 30, 0], object = 3hmx_ant
-# translate[0, 30, 0], object = 2b1a_ant
-# translate[0, 30, 0], object = 2xwt_ant
-# mview store, object = 3hmx_ant
-# mview store, object = 2b1a_ant
-# mview store, object = 2xwt_ant
-# mview interpolate, object = 3hmx_ant
-# mview interpolate, object = 2b1a_ant
-# mview interpolate, object = 2xwt_ant
-# scene 003, store
-# mview store, 70, scene = 003
-
-# frame 100
-# # antigen rotate 180 degrees
-# # my_rotate is another extension command that translates around the y-axis from the objects center of mass
-# my_rotate 180, 3hmx_ant, center = com
-# my_rotate 180, 2b1a_ant
-# my_rotate 180, 2xwt_ant
-# mview store, object = 3hmx_ant
-# mview store, object = 2b1a_ant
-# mview store, object = 2xwt_ant
-# mview reinterpolate, object = 3hmx_ant
-# mview reinterpolate, object = 2b1a_ant
-# mview reinterpolate, object = 2xwt_ant
-# scene 004, store
-# mview store, 100, scene = 004
+frame 50
+hide labels, title
+show labels, title_2
+show labels, 2b1a_ant_title
+show labels, 2xwt_ant_title
+show labels, 3hmx_ant_title
+color magenta, antigens
+hide everything
+show surface, *ant*
+show cartoon, *ant
+set cartoon_transparency, 0.5
+hide everything, *copy*
+show labels, title_2
+show labels, *ant_title*
+mview store, object=2b1a_ant
+mview store, object=2xwt_ant
+mview store, object=3hmx_ant
+scene 002, store
+mview store, 50, scene=002
 
 
-# frame 130
-# scene 005, store
-# # antigen rotate another 180 degrees for a full representation
-# my_rotate 180, 3hmx_ant, center = com
-# my_rotate 180, 2b1a_ant
-# my_rotate 180, 2xwt_ant
-# mview store, object = 3hmx_ant
-# mview store, object = 2b1a_ant
-# mview store, object = 2xwt_ant
-# mview reinterpolate, object = 3hmx_ant
-# mview reinterpolate, object = 2b1a_ant
-# mview reinterpolate, object = 2xwt_ant
-# scene 005, store
-# mview store, 130, scene = 005
+frame 100
+# antigen rotate 180 degrees
+# my_rotate is another extension command that translates around the y-axis from the objects center of mass
+my_rotate 180, 3hmx_ant, center = com
+my_rotate 180, 2b1a_ant
+my_rotate 180, 2xwt_ant
+mview store, object=3hmx_ant
+mview store, object=2b1a_ant
+mview store, object=2xwt_ant
+mview reinterpolate, object=3hmx_ant
+mview reinterpolate, object=2b1a_ant
+mview reinterpolate, object=2xwt_ant
+scene 003, store
+mview store, 100, scene = 003
 
-# frame 160
-# scene 006, store
-# hide labels, title_2 + 2b1a_ant_title + 2xwt_ant_title + 3hmx_ant_title
-# show labels, title_3 + 2b1a_l_title + 2xwt_l_title + 3hmx_l_title
-# color forest, antigens
-# color magenta, light
-# super 3hmx_ant, 3hmx_ant_copy
-# super 2xwt_ant, 2xwt_ant_copy
-# super 2b1a_ant, 2b1a_ant_copy
-# mview store, object = 3hmx_ant
-# mview store, object = 2b1a_ant_copy
-# mview store, object = 2xwt_ant_copy
-# mview store, object = 3hmx_l
-# mview store, object = 2b1a_l
-# mview store, object = 2xwt_l
-# mview reinterpolate, object = 3hmx_ant
-# mview reinterpolate, object = 2b1a_ant
-# mview reinterpolate, object = 2xwt_ant
-# scene 006, store
-# mview store, 160, scene = 006
+# antigen rotate another 180 degrees for a full representation
+frame 150
+my_rotate 180, 3hmx_ant, center = com
+my_rotate 180, 2b1a_ant
+my_rotate 180, 2xwt_ant
+mview store, object=3hmx_ant
+mview store, object=2b1a_ant
+mview store, object=2xwt_ant
+mview reinterpolate, object=3hmx_ant
+mview reinterpolate, object=2b1a_ant
+mview reinterpolate, object=2xwt_ant
+scene 004, store
+mview store, 130, scene = 004
 
+frame 160
+hide labels, title_2 + 2b1a_ant_title + 2xwt_ant_title + 3hmx_ant_title
+show labels, title_3 + 2b1a_l_title + 2xwt_l_title + 3hmx_l_title
+color forest, antigens
+hide everything, antigens
+color magenta, light
+show surface, *_l
+show cartoon, *_l
+super 3hmx_ant, 3hmx_ant_copy
+super 2xwt_ant, 2xwt_ant_copy
+super 2b1a_ant, 2b1a_ant_copy
+mview store, object = 3hmx_l
+mview store, object = 2b1a_l
+mview store, object = 2xwt_l
+mview reinterpolate, object=3hmx_ant
+mview reinterpolate, object=2b1a_ant
+mview reinterpolate, object=2xwt_ant
+scene 006, store
+mview store, 160, scene = 006
 
-# # SCENE 02, rotate light chains
-# frame 190
-# translate[-15, 0, 0], object = 3hmx_l
-# translate[-15, 0, 0], object = 2b1a_l
-# translate[-15, 0, 0], object = 2xwt_l
-# mview store, object = 3hmx_l
-# mview store, object = 2b1a_l
-# mview store, object = 2xwt_l
-# mview interpolate, object = 3hmx_l
-# mview interpolate, object = 2b1a_l
-# mview interpolate, object = 2xwt_l
-# scene 007, store
-# mview store, 190, scene = 007
-
-
-# frame 220
-# my_rotate 180, 3hmx_l
-# my_rotate 180, 2b1a_l
-# my_rotate 180, 2xwt_l
-# mview store, object = 3hmx_l
-# mview store, object = 2b1a_l
-# mview store, object = 2xwt_l
-# mview reinterpolate, object = 3hmx_l
-# mview reinterpolate, object = 2b1a_l
-# mview reinterpolate, object = 2xwt_l
-# scene 008, store
-# mview store, 220, scene = 008
+# SCENE 02, rotate light chains
+frame 210,
+my_rotate 180, 3hmx_l
+my_rotate 180, 2b1a_l
+my_rotate 180, 2xwt_l
+mview store, object=3hmx_l
+mview store, object=2b1a_l
+mview store, object=2xwt_l
+mview reinterpolate, object=3hmx_l
+mview reinterpolate, object=2b1a_l
+mview reinterpolate, object=2xwt_l
+scene 007, store
+mview store, 210, scene = 007
 
 
-# frame 250
-# my_rotate 180, 3hmx_l
-# my_rotate 180, 2b1a_l
-# my_rotate 180, 2xwt_l
-# mview store, object = 3hmx_l
-# mview store, object = 2b1a_l
-# mview store, object = 2xwt_l
-# mview reinterpolate, object = 3hmx_l
-# mview reinterpolate, object = 2b1a_l
-# mview reinterpolate, object = 2xwt_l
-# scene 009, store
-# mview store, 250, scene = 009
+frame 270
+my_rotate 180, 3hmx_l
+my_rotate 180, 2b1a_l
+my_rotate 180, 2xwt_l
+mview store, object = 3hmx_l
+mview store, object = 2b1a_l
+mview store, object = 2xwt_l
+mview reinterpolate, object = 3hmx_l
+mview reinterpolate, object = 2b1a_l
+mview reinterpolate, object = 2xwt_l
+scene 008, store
+mview store, 270, scene = 008
 
 # frame 280
 # hide everything, 2b1a_l + 3hmx_l + 2xwt_l + 3hmx_ant + 2b1a_ant + 2xwt_ant + title_3 + 2xwt_l_title + 3hmx_l_title + 2b1a_l_title
